@@ -1,11 +1,9 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { prisma } from "@/lib/prisma/prisma"
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Kanban Board - Real-Time Collaboration',
@@ -30,6 +28,40 @@ export const metadata: Metadata = {
   },
 }
 
+
+
+async function Test() {
+  // const boards = await prisma.board.findMany({
+  //   select: {
+  //     id: true,
+  //     name: true,
+  //     columns: {
+  //       select: {
+  //         id: true,
+  //         name: true,
+  //         cards: {
+  //           select: {
+  //             id: true,
+  //             title: true,
+  //             position: true
+  //           },
+  //           orderBy: {
+  //             position: 'asc'
+  //           }
+  //         }
+  //       },
+  //       orderBy: {
+  //         position: 'asc'
+  //       }
+  //     }
+  //   }
+  // });
+  // console.log('boards', JSON.stringify(boards))
+  return (
+    <></>
+  )
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased`}>
+        <Test />
         {children}
         <Analytics />
       </body>
